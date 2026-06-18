@@ -154,7 +154,7 @@ async function route(request, env, ctx) {
     // Changing quantity is treated as a refill: re-arm the low-tip alert.
     await env.afm_tips_db.prepare(
       'UPDATE boxes SET tip_model=?, lot=?, quantity=?, purchase_date=?, status=?, registered_by=?, location=?, alerted_at=NULL WHERE box_id=?'
-    ).bind(tipModel || null, lot || null, quantity != null && quantity !== '' ? Number(quantity) : null, purchaseDate || null, status || null, registeredBy || null, location || null, boxId).run();
+    ).bind(tipModel || null, lot || null, quantity != null && quantity !== '' ? Number(quantity) : null, purchaseDate || null, status || 'active', registeredBy || null, location || null, boxId).run();
     return json({ ok: true });
   }
 
