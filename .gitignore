@@ -1,0 +1,20 @@
+# Your actual config — contains real database_id; use wrangler.toml.example as template
+wrangler.toml
+
+# Claude Code
+CLAUDE.md
+.claude/
+
+# Wrangler local state and local D1 database
+.wrangler/
+
+# macOS
+.DS_Store
+
+# Environment files (secrets must never be committed)
+.env
+.env.*
+*.local
+
+# Node (if wrangler ever adds node_modules)
+node_modules/
