@@ -1,8 +1,20 @@
 name = "afm-tips"
 main = "src/worker.js"
-compatibility_date = "2024-01-01"
+compatibility_date = "2025-01-01"
+
+# Verified Brevo sender address used as the "from" on alert emails.
+[vars]
+SENDER_EMAIL = "your-verified-sender@example.com"
 
 [[d1_databases]]
 binding = "afm_tips_db"
 database_name = "afm-tips-db"
 database_id = "PASTE_YOUR_DATABASE_ID_HERE"
+
+# Per-box rate limit for the public /log endpoint (anti-abuse).
+# limit = max requests per `period` seconds, keyed by box id.
+[[unsafe.bindings]]
+name = "RATE_LIMITER"
+type = "ratelimit"
+namespace_id = "1001"
+simple = { limit = 30, period = 60 }
