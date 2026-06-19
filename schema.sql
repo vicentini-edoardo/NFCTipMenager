@@ -7,7 +7,8 @@ CREATE TABLE IF NOT EXISTS boxes (
   status        TEXT NOT NULL DEFAULT 'active',
   registered_by TEXT,
   registered_at TEXT NOT NULL,
-  location      TEXT
+  location      TEXT,
+  alerted_at    TEXT
 );
 
 CREATE TABLE IF NOT EXISTS usage_log (
@@ -17,8 +18,13 @@ CREATE TABLE IF NOT EXISTS usage_log (
   tip_model  TEXT NOT NULL,
   username   TEXT NOT NULL,
   tip_number INTEGER,
-  note       TEXT
+  note       TEXT,
+  FOREIGN KEY (box_id) REFERENCES boxes(box_id),
+  UNIQUE (box_id, tip_number)
 );
+
+CREATE INDEX IF NOT EXISTS idx_usage_box ON usage_log(box_id);
+CREATE INDEX IF NOT EXISTS idx_usage_timestamp ON usage_log(timestamp);
 
 CREATE TABLE IF NOT EXISTS settings (
   key   TEXT PRIMARY KEY,
