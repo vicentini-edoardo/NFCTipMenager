@@ -1,0 +1,9 @@
+name = "afm-tips"
+account_id = "YOUR_ACCOUNT_ID"
+main = "src/worker.js"
+compatibility_date = "2024-01-01"
+
+[[d1_databases]]
+binding = "afm_tips_db"
+database_name = "afm-tips-db"
+database_id = "360f673e-aacc-4f4a-881f-feebcc96d727"

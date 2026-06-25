@@ -1,6 +1,3 @@
-# Your actual config — contains real database_id; use wrangler.toml.example as template
-wrangler.toml
-
 # Claude Code
 CLAUDE.md
 .claude/
