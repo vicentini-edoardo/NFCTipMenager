@@ -1,5 +1,5 @@
 name = "afm-tips"
-account_id = "fbde55fa9ae04f61b930ee9cc5549043"
+account_id = "9eac0bf303317c4d43243f5431d1b024"
 main = "src/worker.js"
 compatibility_date = "2024-01-01"
 
